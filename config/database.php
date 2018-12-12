@@ -50,8 +50,8 @@ return [
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
-            'strict' => true,
-            'engine' => null,
+            'strict' => env('DB_STRICT', true),
+            'engine' => env('DB_ENGINE', null),
         ],
 
         'pgsql' => [
