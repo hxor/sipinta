@@ -39,12 +39,12 @@
 		<div id="wrapper">
 
             <!-- Top Bar Start -->
-            @include('layouts.partials._topbar')
+            @include('layouts.admin.partials._topbar')
             <!-- Top Bar End -->
 
 
             <!--  Left Sidebar Start  -->
-            @include('layouts.partials._sidebar')
+            @include('layouts.admin.partials._sidebar')
 			<!-- Left Sidebar End -->
 
 			<!-- ============================================================== -->
@@ -57,7 +57,7 @@
                 </div> <!-- content -->
 
                 {{-- Modal --}}
-                @include('layouts.partials._modal')
+                @yield('modal')
 
                 <footer class="footer">
                     © {{ date('Y') }}. All rights reserved.

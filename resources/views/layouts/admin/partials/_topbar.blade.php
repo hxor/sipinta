@@ -29,7 +29,7 @@
                     <li class="dropdown top-menu-item-xs">
                         <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"> {{ Auth::user()->name }} <img src="{{ asset('assets/images/users/avatar-1.png') }}" alt="user-img" class="img-circle"> </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="ti-user m-r-10 text-custom"></i> Profile</a></li>
+                            <li><a href="{{ route('admin.profile.index') }}"><i class="ti-user m-r-10 text-custom"></i> Profile</a></li>
                             <li class="divider"></li>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a>

@@ -9,6 +9,10 @@
                 <li class="">
                     <a href="{{ route('home') }}" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span></a>
                 </li>
+
+                <li class="">
+                    <a href="{{ route('admin.user.index') }}" class="waves-effect"><i class="ti-user"></i> <span> Users </span></a>
+                </li>
             </ul>
             <div class="clearfix"></div>
         </div>

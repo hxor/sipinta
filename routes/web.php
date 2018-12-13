@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::resource('user', 'UserController');
+    Route::get('/profile', 'UserController@profileIndex')->name('profile.index');
+    Route::put('/profile/update', 'UserController@profileUpdate')->name('profile.update');
+});
+
+Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
+    Route::get('user', 'UserController@getTable')->name('user');
+});
