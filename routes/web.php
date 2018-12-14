@@ -23,6 +23,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('user', 'UserController');
     Route::get('/profile', 'UserController@profileIndex')->name('profile.index');
     Route::put('/profile/update', 'UserController@profileUpdate')->name('profile.update');
+
+    Route::get('setting/general', 'SettingGeneralController@index')->name('setting.general.index');
+    Route::post('setting/general', 'SettingGeneralController@store')->name('setting.general.store');
+    Route::get('setting/costs', 'SettingCostController@index')->name('setting.cost.index');
+    Route::post('setting/costs', 'SettingCostController@store')->name('setting.cost.store');
 });
 
 Route::group(['prefix' => 'table', 'as' => 'table.'], function () {

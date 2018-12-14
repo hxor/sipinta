@@ -14,72 +14,13 @@ class SettingGeneralController extends Controller
      */
     public function index()
     {
-        //
+        $model = SettingGeneral::first();
+        return view('pages.admin.setting.general.index', compact('model'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SettingGeneral  $settingGeneral
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SettingGeneral $settingGeneral)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SettingGeneral  $settingGeneral
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SettingGeneral $settingGeneral)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SettingGeneral  $settingGeneral
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SettingGeneral $settingGeneral)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\SettingGeneral  $settingGeneral
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SettingGeneral $settingGeneral)
-    {
-        //
+        $setting = SettingGeneral::updateOrCreate(['id' => 1], $request->all());
+        return redirect()->route('admin.setting.general.index');
     }
 }

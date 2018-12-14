@@ -13,6 +13,14 @@
                 <li class="">
                     <a href="{{ route('admin.user.index') }}" class="waves-effect"><i class="ti-user"></i> <span> Users </span></a>
                 </li>
+
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-settings"></i><span> Settings </span> <span class="menu-arrow"></span> </a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ route('admin.setting.general.index') }}">Aplikasi</a></li>
+                        <li><a href="{{ route('admin.setting.cost.index') }}">Persentase</a></li>
+                    </ul>
+                </li>
             </ul>
             <div class="clearfix"></div>
         </div>
