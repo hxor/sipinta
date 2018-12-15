@@ -30,9 +30,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::post('setting/costs', 'SettingCostController@store')->name('setting.cost.store');
 
     Route::resource('group', 'GroupController');
+    Route::resource('staff', 'StaffController');
 });
 
 Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
     Route::get('user', 'UserController@getTable')->name('user');
     Route::get('group', 'GroupController@getTable')->name('group');
+    Route::get('staff', 'StaffController@getTable')->name('staff');
 });

@@ -18,6 +18,7 @@
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i><span> Staff </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('admin.group.index') }}">Group</a></li>
+                        <li><a href="{{ route('admin.staff.index') }}">Staff</a></li>
                     </ul>
                 </li>
 
