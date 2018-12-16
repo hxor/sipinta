@@ -18,15 +18,19 @@
                 </li>
 
                 <li class="">
-                    <a href="{{ route('admin.user.index') }}" class="waves-effect"><i class="ti-user"></i> <span> Users </span></a>
-                </li>
+                    <a href="{{ route('admin.member.index') }}" class="waves-effect"><i class="ti-star"></i> <span> Members </span></a>
+                </li>                
 
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i><span> Staff </span> <span class="menu-arrow"></span> </a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-id-badge"></i><span> Staff </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('admin.group.index') }}">Group</a></li>
                         <li><a href="{{ route('admin.staff.index') }}">Staff</a></li>
                     </ul>
+                </li>
+
+                <li class="">
+                    <a href="{{ route('admin.user.index') }}" class="waves-effect"><i class="ti-user"></i> <span> Users </span></a>
                 </li>
 
                 <li class="has_sub">

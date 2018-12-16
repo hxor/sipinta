@@ -53,18 +53,25 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group{{ $errors->has('group_id') ? ' has-error' : '' }}">
-                    {!! Form::label('group_id', 'Jenis Kelamin') !!}
+                    {!! Form::label('group_id', 'Group') !!}
                     {!! Form::select('group_id', $group, null, ['id' => 'group_id', 'class' => 'form-control', 'required' => 'required']) !!}
                     <small class="text-danger">{{ $errors->first('group_id') }}</small>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group{{ $errors->has('is_leader') ? ' has-error' : '' }}">
                     {!! Form::label('is_leader', 'Ketua Group ?') !!}
                     {!! Form::select('is_leader', [true => 'Ya', false => 'Tidak'], null, ['id' => 'is_leader', 'class' => 'form-control', 'required' => 'required']) !!}
                     <small class="text-danger">{{ $errors->first('is_leader') }}</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
+                    {!! Form::label('status', 'Aktif ?') !!}
+                    {!! Form::select('status', [true => 'Ya', false => 'Tidak'], null, ['id' => 'status', 'class' => 'form-control', 'required' => 'required']) !!}
+                    <small class="text-danger">{{ $errors->first('status') }}</small>
                 </div>
             </div>
         </div>

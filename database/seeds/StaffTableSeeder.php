@@ -20,6 +20,7 @@ class StaffTableSeeder extends Seeder
                 'phone' => '08912341234', 
                 'address' => 'Cirebon, Indonesia', 
                 'is_leader' => true,
+                'status' => true,
                 'created_at' => date('Y-m-d H:i:s'), 
                 'updated_at' => date('Y-m-d H:i:s')
             ]

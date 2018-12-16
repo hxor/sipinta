@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStaffTable extends Migration
+class CreateMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,20 @@ class CreateStaffTable extends Migration
      */
     public function up()
     {
-        Schema::create('staff', function (Blueprint $table) {
+        Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('group_id')->unsigned();
-            $table->foreign('group_id')->references('id')->on('groups');
+            $table->integer('staff_id')->unsigned();
+            $table->foreign('staff_id')->references('id')->on('staff');
             $table->string('idnumber');
             $table->string('name');
             $table->enum('gender', ['male', 'female']);
             $table->string('phone');
-            $table->text('address');
-            $table->boolean('is_leader');
+            $table->string('address');
+            $table->string('village');
+            $table->string('subdistrict');
+            $table->string('city');
+            $table->string('province');
+            $table->string('zipcode');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
@@ -35,6 +39,6 @@ class CreateStaffTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('staff');
+        Schema::dropIfExists('members');
     }
 }

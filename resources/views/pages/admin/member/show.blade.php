@@ -21,16 +21,28 @@
             <td>{{ $model->address }}</td>
         </tr>
         <tr>
+            <th>Desa</th>
+            <td>{{ $model->village }}</td>
+        </tr>
+        <tr>
+            <th>Kecamatan</th>
+            <td>{{ $model->subdistrict }}</td>
+        </tr>
+        <tr>
+            <th>Provinsi</th>
+            <td>{{ $model->province }}</td>
+        </tr>
+        <tr>
+            <th>Kode Pos</th>
+            <td>{{ $model->zipcode }}</td>
+        </tr>
+        <tr>
             <th>Telepon</th>
             <td>{{ $model->phone }}</td>
         </tr>
         <tr>
-            <th>Group</th>
-            <td>{{ $model->group->title }}</td>
-        </tr>
-        <tr>
-            <th>Ketua Group ?</th>
-            <td>{{ $model->is_leader ? 'Ya' : 'Tidak' }}</td>
+            <th>Anggota Dari</th>
+            <td>{{ $model->staff->name }}</td>
         </tr>
         <tr>
             <th>Aktif ?</th>

@@ -32,6 +32,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('group', 'GroupController');
     Route::resource('staff', 'StaffController');
     Route::resource('package/loan', 'PackageLoanController');
+
+
+    Route::resource('member', 'MemberController');
 });
 
 Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
@@ -40,4 +43,6 @@ Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
     Route::get('staff', 'StaffController@getTable')->name('staff');
 
     Route::get('package/loan', 'PackageLoanController@getTable')->name('package.loan');
+
+    Route::get('member', 'MemberController@getTable')->name('member');
 });
