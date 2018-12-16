@@ -10,6 +10,13 @@
                     <a href="{{ route('home') }}" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span></a>
                 </li>
 
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-package"></i><span> Data Paket </span> <span class="menu-arrow"></span> </a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ route('admin.loan.index') }}">Pinjaman</a></li>
+                    </ul>
+                </li>
+
                 <li class="">
                     <a href="{{ route('admin.user.index') }}" class="waves-effect"><i class="ti-user"></i> <span> Users </span></a>
                 </li>

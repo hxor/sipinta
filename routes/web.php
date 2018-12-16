@@ -31,10 +31,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::resource('group', 'GroupController');
     Route::resource('staff', 'StaffController');
+    Route::resource('package/loan', 'PackageLoanController');
 });
 
 Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
     Route::get('user', 'UserController@getTable')->name('user');
     Route::get('group', 'GroupController@getTable')->name('group');
     Route::get('staff', 'StaffController@getTable')->name('staff');
+
+    Route::get('package/loan', 'PackageLoanController@getTable')->name('package.loan');
 });
