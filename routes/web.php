@@ -35,6 +35,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
 
     Route::resource('member', 'MemberController');
+
+    Route::group(['prefix' => 'transaction', 'as' => 'transaction.'], function () {
+        Route::resource('loan', 'MemberLoanController');
+    });
 });
 
 Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
@@ -45,4 +49,12 @@ Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
     Route::get('package/loan', 'PackageLoanController@getTable')->name('package.loan');
 
     Route::get('member', 'MemberController@getTable')->name('member');
+
+    Route::group(['prefix' => 'transaction', 'as' => 'transaction.'], function () {
+        Route::get('loan', 'MemberLoanController@getTable')->name('loan');
+    });
+});
+
+Route::group(['prefix' => 'service', 'as' => 'service.'], function () {
+    Route::get('auto/member', 'ServiceController@autoMember')->name('auto.member');
 });

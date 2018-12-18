@@ -19,7 +19,14 @@
 
                 <li class="">
                     <a href="{{ route('admin.member.index') }}" class="waves-effect"><i class="ti-star"></i> <span> Members </span></a>
-                </li>                
+                </li>
+                
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i><span> Transaksi </span> <span class="menu-arrow"></span> </a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ route('admin.transaction.loan.index') }}">Pinjam</a></li>
+                    </ul>
+                </li>
 
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-id-badge"></i><span> Staff </span> <span class="menu-arrow"></span> </a>
