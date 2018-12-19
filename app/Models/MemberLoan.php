@@ -38,4 +38,14 @@ class MemberLoan extends Model
     {
         return $this->belongsTo(PackageLoan::class, 'loan_id', 'id');
     }
+
+    /**
+     * This Member Loan has Many Payment
+     *
+     * @return void
+     */
+    public function payment()
+    {
+        return $this->hasMany(MemberPayment::class, 'member_loan_id', 'id');
+    }
 }

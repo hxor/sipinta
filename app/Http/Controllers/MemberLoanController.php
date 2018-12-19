@@ -214,6 +214,9 @@ class MemberLoanController extends Controller
     {
         $model = $this->model->with(['member', 'loan']);
         return DataTables::of($model)
+            ->addColumn('stor', function ($model) {
+                return '<a href="' .route('admin.transaction.loan.payment.index', $model->id). '"><span class="fa fa-edit"></span></a>';
+            })
             ->addColumn('action', function ($model) {
                 return view('layouts.admin.partials._action', [
                     'model' => $model,
@@ -223,6 +226,6 @@ class MemberLoanController extends Controller
                 ]);
             })
             ->addIndexColumn()
-            ->rawColumns(['action'])->make(true);
+            ->rawColumns(['stor','action'])->make(true);
     }
 }

@@ -48,9 +48,9 @@
                                 <th>Anggota</th>
                                 <th>Paket</th>
                                 <th>Pinjaman</th>
-                                <th>Angsuran</th>
                                 <th>Sisa</th>
                                 <th>Lunas ?</th>
+                                <th>Stor</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -92,11 +92,11 @@
                     {data: 'member.name', name: 'member.name'},
                     {data: 'loan.title', name: 'loan.title'},
                     {data: 'debt', name: 'debt'},
-                    {data: 'payment', name: 'payment'},
                     {data: 'payment_left', name: 'payment_left'},
                     {data: 'status', name:'status', "render": function (data) {
                         if(data == 1) {return 'Belum';} else {return 'Lunas';}
                     }},
+                    {data: 'stor', name: 'stor'},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });
