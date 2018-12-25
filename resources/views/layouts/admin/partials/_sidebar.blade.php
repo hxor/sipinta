@@ -17,8 +17,11 @@
                     </ul>
                 </li>
 
-                <li class="">
-                    <a href="{{ route('admin.member.index') }}" class="waves-effect"><i class="ti-star"></i> <span> Members </span></a>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="ti-star"></i> <span> Anggota </span> <span class="menu-arrow"></span> </a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ route('admin.member.index') }}">Daftar Anggota</a></li>
+                    </ul>
                 </li>
                 
                 <li class="has_sub">

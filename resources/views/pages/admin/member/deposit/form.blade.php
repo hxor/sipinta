@@ -1,16 +1,26 @@
 <div class="row">
         <div class="col-md-12">
             {!! Form::model($model, [
-                'route' => $model->exists ? ['admin.transaction.loan.payment.update', $loan->id, $model->id] : ['admin.transaction.loan.payment.store', $loan->id],
+                'route' => $model->exists ? ['admin.deposit.update', $member->id, $model->id] : ['admin.deposit.store', $member->id],
                 'method' => $model->exists ? 'PUT' : 'POST'
             ]) !!}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                        {!! Form::label('type', 'Jenis') !!}
+                        {!! Form::select('type', ['in' => 'Simpan', 'out' => 'Tarik'], null, ['id' => 'type', 'class' => 'form-control', 'required' => 'required']) !!}
+                        <small class="text-danger">{{ $errors->first('type') }}</small>
+                    </div>
+                </div>
+            </div>
    
             <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group{{ $errors->has('payment') ? ' has-error' : '' }}">
-                        {!! Form::label('payment', 'Storan') !!}
-                        {!! Form::number('payment', $model->exists ? null : $loan->payment, ['id' => 'payment', 'class' => 'form-control', 'required' => 'required', 'placeholder' => 'Rp']) !!}
-                        <small class="text-danger">{{ $errors->first('payment') }}</small>
+                    <div class="form-group{{ $errors->has('cash') ? ' has-error' : '' }}">
+                        {!! Form::label('cash', 'Nominal') !!}
+                        {!! Form::number('cash', null, ['id' => 'cash', 'class' => 'form-control', 'required' => 'required', 'placeholder' => 'Rp']) !!}
+                        <small class="text-danger">{{ $errors->first('cash') }}</small>
                     </div>
                 </div>
             </div>

@@ -21,4 +21,12 @@ class Member extends Model
     {
         return $this->belongsTo(Staff::class, 'staff_id', 'id');
     }
+
+    /**
+     * This Member Has Many Saving
+     */
+    public function deposit()
+    {
+        return $this->hasMany(MemberSaving::class, 'member_id', 'id');
+    }
 }

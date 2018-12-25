@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\PackageLoan;
+use App\Models\Member;
 use App\Models\MemberLoan;
+use App\Models\MemberSaving;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -75,6 +77,8 @@ class MemberLoanController extends Controller
         ]);
 
         $package = PackageLoan::find($request->loan_id);
+        $member = Member::find($request->member_id);
+        $memberLastDeposit = $member->deposit()->latest()->first();
         $lastInput = MemberLoan::whereDate('created_at', date('Y-m-d'))->latest()->first();
 
         $prefix = 'PIN-'. date('Ymd') .'-';
@@ -110,6 +114,13 @@ class MemberLoanController extends Controller
         ];
 
         $model = $this->model->create($data);
+        
+        $member->deposit()->create([
+            'date' => date('Y-m-d'),
+            'type' => 'in',
+            'cash' => $costSaving,
+            'saldo' => $memberLastDeposit ? $memberLastDeposit->saldo + $costSaving : $costSaving
+        ]);
         return $model;
 
     }
@@ -189,6 +200,19 @@ class MemberLoanController extends Controller
 
         $model = $this->model->findOrFail($id);
         $model->update($data);
+        $deposit = Member::find($model->member->id)->deposit()->latest()->limit(2)->get();
+        $lastDeposit = MemberSaving::find($deposit[0]->id);
+        if ($deposit->count() == 2) {
+            $lastDeposit->update([
+                'cash' => $costSaving,
+                'saldo' => $deposit[1]->saldo + $costSaving
+            ]);
+        } else {
+            $lastDeposit->update([
+                'cash' => $costSaving,
+                'saldo' => $costSaving,
+            ]);
+        }
         return $model;
     }
 

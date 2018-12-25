@@ -152,6 +152,9 @@ class MemberController extends Controller
     {
         $model = $this->model->with('staff');
         return DataTables::of($model)
+            ->addColumn('deposit_button', function ($model) {
+                return '<a href="' .route('admin.deposit.index', $model->id). '"><span class="fa fa-edit"></span></a>';
+            })
             ->addColumn('action', function ($model) {
                 return view('layouts.admin.partials._action', [
                     'model' => $model,
@@ -161,6 +164,6 @@ class MemberController extends Controller
                 ]);
             })
             ->addIndexColumn()
-            ->rawColumns(['action'])->make(true);
+            ->rawColumns(['action', 'deposit_button'])->make(true);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMemberPaymentsTable extends Migration
+class CreateMemberSavingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateMemberPaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('member_payments', function (Blueprint $table) {
+        Schema::create('member_savings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('member_loan_id')->unsigned();
-            $table->foreign('member_loan_id')->references('id')->on('member_loans')->onDelete('cascade');
-            $table->decimal('payment', 15, 2);
+            $table->integer('member_id')->unsigned();
+            $table->foreign('member_id')->references('id')->on('members');
+            $table->enum('type', ['in', 'out']);
             $table->date('date');
+            $table->decimal('cash', 15, 2);
+            $table->decimal('saldo', 15, 2);
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateMemberPaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('member_payments');
+        Schema::dropIfExists('member_savings');
     }
 }
