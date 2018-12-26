@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Staff;
-use App\Models\Member;
+use App\Models\PackageDeposit;
 use Illuminate\Http\Request;
 use DataTables;
 
-class MemberController extends Controller
+class PackageDepositController extends Controller
 {
     /**
      * Global model in this controller
@@ -23,9 +22,9 @@ class MemberController extends Controller
      */
     public function __construct()
     {
-        $this->model = new Member();
-        $this->view = 'pages.admin.member';
-        $this->route = 'admin.member';
+        $this->model = new PackageDeposit();
+        $this->view = 'pages.admin.package.deposit';
+        $this->route = 'admin.deposit';
     }
 
     /**
@@ -46,8 +45,7 @@ class MemberController extends Controller
     public function create()
     {
         $model = $this->model;
-        $staff = Staff::where('status', true)->pluck('name', 'id')->all();
-        return view("{$this->view}.form", compact('model', 'staff'));
+        return view("{$this->view}.form", compact('model'));
     }
 
     /**
@@ -59,18 +57,11 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'staff_id' => 'required',
-            'idnumber' => 'required|unique:members,idnumber', 
-            'name' => 'required', 
-            'gender' => 'required',
-            'phone' => 'required', 
-            'address' => 'required', 
-            'village' => 'required', 
-            'subdistrict' => 'required', 
-            'city' => 'required', 
-            'province' => 'required', 
-            'zipcode' => 'required',
-            'status' => 'required'
+            'title' => 'required', 
+            'plan' => 'required', 
+            'period' => 'required', 
+            'interest' => 'required', 
+            'minimum' => 'required'
         ]);
         $model = $this->model->create($request->all());
         return $model;
@@ -97,8 +88,7 @@ class MemberController extends Controller
     public function edit($id)
     {
         $model = $this->model->findOrFail($id);
-        $staff = Staff::where('status', true)->pluck('name', 'id')->all();
-        return view("{$this->view}.form", compact('model', 'staff'));
+        return view("{$this->view}.form", compact('model'));
     }
 
     /**
@@ -111,18 +101,11 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'staff_id' => 'required',
-            'idnumber' => 'required|unique:members,idnumber,'.$id, 
-            'name' => 'required', 
-            'gender' => 'required',
-            'phone' => 'required', 
-            'address' => 'required', 
-            'village' => 'required', 
-            'subdistrict' => 'required', 
-            'city' => 'required', 
-            'province' => 'required', 
-            'zipcode' => 'required',
-            'status' => 'required'
+            'title' => 'required', 
+            'plan' => 'required', 
+            'period' => 'required', 
+            'interest' => 'required', 
+            'minimum' => 'required'
         ]);
 
         $model = $this->model->findOrFail($id);
@@ -150,11 +133,8 @@ class MemberController extends Controller
      */
     public function getTable()
     {
-        $model = $this->model->with('staff');
+        $model = $this->model->query();
         return DataTables::of($model)
-            ->addColumn('saving_button', function ($model) {
-                return '<a href="' .route('admin.saving.index', $model->id). '"><span class="fa fa-edit"></span></a>';
-            })
             ->addColumn('action', function ($model) {
                 return view('layouts.admin.partials._action', [
                     'model' => $model,
@@ -164,6 +144,6 @@ class MemberController extends Controller
                 ]);
             })
             ->addIndexColumn()
-            ->rawColumns(['action', 'saving_button'])->make(true);
+            ->rawColumns(['action'])->make(true);
     }
 }

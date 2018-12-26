@@ -14,6 +14,7 @@
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-package"></i><span> Data Paket </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('admin.loan.index') }}">Pinjaman</a></li>
+                        <li><a href="{{ route('admin.deposit.index') }}">Tabungan</a></li>
                     </ul>
                 </li>
 

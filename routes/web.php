@@ -32,9 +32,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('group', 'GroupController');
     Route::resource('staff', 'StaffController');
     Route::resource('package/loan', 'PackageLoanController');
+    Route::resource('package/deposit', 'PackageDepositController');
 
     Route::resource('member', 'MemberController');
-    Route::resource('member/{id}/deposit', 'MemberSavingController');
+    Route::resource('member/{id}/saving', 'MemberSavingController');
 
     Route::group(['prefix' => 'transaction', 'as' => 'transaction.'], function () {
         Route::resource('loan', 'MemberLoanController');
@@ -48,9 +49,10 @@ Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
     Route::get('staff', 'StaffController@getTable')->name('staff');
 
     Route::get('package/loan', 'PackageLoanController@getTable')->name('package.loan');
+    Route::get('package/deposit', 'PackageDepositController@getTable')->name('package.deposit');
 
     Route::get('member', 'MemberController@getTable')->name('member');
-    Route::get('member/{id}/deposit', 'MemberSavingController@getTable')->name('member.deposit');
+    Route::get('member/{id}/deposit', 'MemberSavingController@getTable')->name('member.saving');
 
     Route::group(['prefix' => 'transaction', 'as' => 'transaction.'], function () {
         Route::get('loan', 'MemberLoanController@getTable')->name('loan');

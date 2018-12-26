@@ -12,16 +12,16 @@
     <!-- Page-Title -->
     <div class="row">
         <div class="col-sm-12">
-            <h4 class="page-title">Member</h4>
+            <h4 class="page-title">Tabungan</h4>
             <ol class="breadcrumb">
                 <li>
-                    <a href="#">Pages</a>
+                    <a href="#">Package</a>
                 </li>
                 <li>
                     <a href="#">Admin</a>
                 </li>
                 <li class="active">
-                    Member
+                    Tabungan
                 </li>
             </ol>
         </div>
@@ -33,7 +33,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                     Datatable
-                    <a href="{{ route('admin.member.create') }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect modal-show" title="Create Resource"><i class="fa fa-plus"></i> Create</a>
+                    <a href="{{ route('admin.deposit.create') }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect modal-show" title="Create Resource"><i class="fa fa-plus"></i> Create</a>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -43,12 +43,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>NIK</th>
-                                <th>Nama</th>
-                                <th>Desa</th>
-                                <th>Anggota Dari</th>
-                                <th>Aktif ?</th>
-                                <th>Tabungan</th>
+                                <th>Title</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -82,15 +77,10 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('table.member') }}",
+                ajax: "{{ route('table.package.deposit') }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'id'},
-                    {data: 'idnumber', name: 'idnumber'},
-                    {data: 'name', name: 'name'},
-                    {data: 'village', name: 'village'},
-                    {data: 'staff.name', name: 'staff.name'},
-                    {data: 'status', name: 'status'},
-                    {data: 'saving_button', name: 'saving_button'},
+                    {data: 'title', name: 'title'},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });

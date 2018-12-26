@@ -1,7 +1,7 @@
 <div class="row">
         <div class="col-md-12">
             {!! Form::model($model, [
-                'route' => $model->exists ? ['admin.deposit.update', $member->id, $model->id] : ['admin.deposit.store', $member->id],
+                'route' => $model->exists ? ['admin.saving.update', $member->id, $model->id] : ['admin.saving.store', $member->id],
                 'method' => $model->exists ? 'PUT' : 'POST'
             ]) !!}
 

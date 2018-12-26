@@ -35,7 +35,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                     Datatable
-                        <a href="{{ route('admin.deposit.create', $member->id) }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect modal-show" title="Create Resource"><i class="fa fa-plus"></i> Create</a>
+                        <a href="{{ route('admin.saving.create', $member->id) }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect modal-show" title="Create Resource"><i class="fa fa-plus"></i> Create</a>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -110,7 +110,7 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('table.member.deposit', $member->id) }}",
+                ajax: "{{ route('table.member.saving', $member->id) }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'id'},
                     {data: 'date', name: 'date'},
