@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class PackageDeposit extends Model
 {
     protected $fillable = [
-        'title', 'plan', 'period', 'interest', 'minimum'
+        'title', 'period', 'profit', 'minimum'
     ];
 }

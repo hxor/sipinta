@@ -13,34 +13,30 @@ class PackageDepositsTableSeeder extends Seeder
     {
         $data = [
             [
-                'title' => 'Tabungan Harian', 
-                'plan' => 1, 
-                'period' => 1, 
-                'interest' => 15, 
+                'title' => 'Tabungan Harian',
+                'period' => 312, 
+                'profit' => 15, 
                 'minimum' => 10000.00, 
                 'created_at' => date('Y-m-d H:i:s'), 
                 'updated_at' => date('Y-m-d H:i:s')
             ], [
                 'title' => 'Tabungan Mingguan', 
-                'plan' => 7, 
-                'period' => 1, 
-                'interest' => 15, 
+                'period' => 48, 
+                'profit' => 15, 
                 'minimum' => 20000.00, 
                 'created_at' => date('Y-m-d H:i:s'), 
                 'updated_at' => date('Y-m-d H:i:s')
             ], [
                 'title' => 'Tabungan Bulanan', 
-                'plan' => 30, 
-                'period' => 1, 
-                'interest' => 15, 
+                'period' => 12, 
+                'profit' => 15, 
                 'minimum' => 100000.00, 
                 'created_at' => date('Y-m-d H:i:s'), 
                 'updated_at' => date('Y-m-d H:i:s')
             ], [
                 'title' => 'Simpanan Non-Saham', 
-                'plan' => 0, 
                 'period' => 1, 
-                'interest' => 20, 
+                'profit' => 20, 
                 'minimum' => 5000000.00, 
                 'created_at' => date('Y-m-d H:i:s'), 
                 'updated_at' => date('Y-m-d H:i:s')

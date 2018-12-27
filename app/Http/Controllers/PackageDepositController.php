@@ -58,7 +58,6 @@ class PackageDepositController extends Controller
     {
         $this->validate($request, [
             'title' => 'required', 
-            'plan' => 'required', 
             'period' => 'required', 
             'interest' => 'required', 
             'minimum' => 'required'
@@ -102,7 +101,6 @@ class PackageDepositController extends Controller
     {
         $this->validate($request, [
             'title' => 'required', 
-            'plan' => 'required', 
             'period' => 'required', 
             'interest' => 'required', 
             'minimum' => 'required'

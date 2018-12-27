@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MemberLoansTableSeeder::class);
         $this->call(MemberSavingsTableSeeder::class);
         $this->call(PackageDepositsTableSeeder::class);
+        $this->call(MemberDepositsTableSeeder::class);
     }
 }

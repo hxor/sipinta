@@ -16,9 +16,8 @@ class CreatePackageDepositsTable extends Migration
         Schema::create('package_deposits', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->integer('plan')->unsigned();
             $table->integer('period')->unsigned();
-            $table->float('interest', 0);
+            $table->float('profit', 0);
             $table->decimal('minimum', 15, 2);
             $table->timestamps();
         });
