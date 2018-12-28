@@ -15,7 +15,7 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('staff_id')->unsigned();
+            $table->integer('staff_id')->nullable()->unsigned();
             $table->foreign('staff_id')->references('id')->on('staff');
             $table->string('idnumber');
             $table->string('name');

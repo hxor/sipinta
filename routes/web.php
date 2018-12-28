@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::group(['prefix' => 'transaction', 'as' => 'transaction.'], function () {
         Route::resource('loan', 'MemberLoanController');
         Route::resource('/loan/{id}/payment', 'MemberPaymentController', ['names' => 'loan.payment']);
+        Route::resource('deposit', 'MemberDepositController');
     });
 });
 
@@ -57,6 +58,7 @@ Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
     Route::group(['prefix' => 'transaction', 'as' => 'transaction.'], function () {
         Route::get('loan', 'MemberLoanController@getTable')->name('loan');
         Route::get('loan/{id}/payment', 'MemberPaymentController@getTable')->name('loan.payment');
+        Route::get('deposit', 'MemberDepositController@getTable')->name('deposit');
     });
 });
 

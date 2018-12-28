@@ -15,7 +15,7 @@ class CreateMemberDepositsTable extends Migration
     {
         Schema::create('member_deposits', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('invoice');
+            $table->string('account')->unique();
             $table->integer('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members');
             $table->integer('deposit_id')->unsigned();

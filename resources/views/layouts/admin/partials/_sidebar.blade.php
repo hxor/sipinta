@@ -29,6 +29,7 @@
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i><span> Transaksi </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('admin.transaction.loan.index') }}">Pinjam</a></li>
+                        <li><a href="{{ route('admin.transaction.deposit.index') }}">Tabungan</a></li>
                     </ul>
                 </li>
 

@@ -59,7 +59,6 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'staff_id' => 'required',
             'idnumber' => 'required|unique:members,idnumber', 
             'name' => 'required', 
             'gender' => 'required',
@@ -111,7 +110,6 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'staff_id' => 'required',
             'idnumber' => 'required|unique:members,idnumber,'.$id, 
             'name' => 'required', 
             'gender' => 'required',

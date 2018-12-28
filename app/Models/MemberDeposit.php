@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MemberDeposit extends Model
 {
     protected $fillable = [
-        'invoice', 'member_id', 'deposit_id', 'cash', 'interest', 'status'
+        'account', 'member_id', 'deposit_id', 'cash', 'profit', 'status'
     ];
 
     /**

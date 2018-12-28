@@ -13,13 +13,14 @@ class MemberDepositsTableSeeder extends Seeder
     {
         $data = [
             [
-                'invoice' => 'TAB-'. date('Ymd') .'-'. 0001,
+                'account' => '1231234123',
                 'member_id' => 1, 
                 'deposit_id' => 1,
                 'cash' => 10000, 
                 'profit' => 468000,
                 'status' => true, 
-                'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')
+                'created_at' => date('Y-m-d H:i:s'), 
+                'updated_at' => date('Y-m-d H:i:s')
             ]
         ];
 

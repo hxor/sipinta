@@ -94,7 +94,7 @@
             <div class="col-md-6">
                 <div class="form-group{{ $errors->has('staff_id') ? ' has-error' : '' }}">
                     {!! Form::label('staff_id', 'Anggota Dari ?') !!}
-                    {!! Form::select('staff_id', $staff, null, ['id' => 'staff_id', 'class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::select('staff_id', [ null => '-' ] + $staff, null, ['id' => 'staff_id', 'class' => 'form-control', 'required' => 'required']) !!}
                     <small class="text-danger">{{ $errors->first('staff_id') }}</small>
                 </div>
             </div>

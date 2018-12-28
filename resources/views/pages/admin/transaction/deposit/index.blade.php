@@ -4,6 +4,7 @@
     <!-- Datatables -->
     <link href="{{ asset('assets/plugins/datatables/dataTables.bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/plugins/datatables/responsive.bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 @endpush
 
 @section('content')
@@ -12,16 +13,16 @@
     <!-- Page-Title -->
     <div class="row">
         <div class="col-sm-12">
-            <h4 class="page-title">Member</h4>
+            <h4 class="page-title">Tabungan</h4>
             <ol class="breadcrumb">
                 <li>
                     <a href="#">Pages</a>
                 </li>
                 <li>
-                    <a href="#">Admin</a>
+                    <a href="#">Transaksi</a>
                 </li>
                 <li class="active">
-                    Member
+                    Tabungan
                 </li>
             </ol>
         </div>
@@ -33,7 +34,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                     Datatable
-                    <a href="{{ route('admin.member.create') }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect modal-show" title="Create Resource"><i class="fa fa-plus"></i> Create</a>
+                    <a href="{{ route('admin.transaction.deposit.create') }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect modal-show" title="Create Resource"><i class="fa fa-plus"></i> Create</a>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -43,12 +44,11 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>NIK</th>
-                                <th>Nama</th>
-                                <th>Desa</th>
-                                <th>Anggota Dari</th>
-                                <th>Aktif ?</th>
-                                <th>Tabungan</th>
+                                <th>Invoice</th>
+                                <th>Anggota</th>
+                                <th>Paket</th>
+                                <th>Storan</th>
+                                <th>Selesai ?</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -75,6 +75,7 @@
     <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/responsive.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/ajax-crud.js') }}"></script>
     <script>
         $(document).ready(function() {
@@ -82,17 +83,16 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('table.member') }}",
+                ajax: "{{ route('table.transaction.deposit') }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'id'},
-                    {data: 'idnumber', name: 'idnumber'},
-                    {data: 'name', name: 'name'},
-                    {data: 'village', name: 'village'},
-                    {data: 'staff', name:'staff', "render": function (data) {
-                        if(data) {return data.name;} else {return '-';}
+                    {data: 'account', name: 'account'},
+                    {data: 'member.name', name: 'member.name'},
+                    {data: 'deposit.title', name: 'deposit.title'},
+                    {data: 'cash', name: 'cash'},
+                    {data: 'status', name:'status', "render": function (data) {
+                        if(data == 1) {return 'Belum';} else {return 'Lunas';}
                     }},
-                    {data: 'status', name: 'status'},
-                    {data: 'saving_button', name: 'saving_button'},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });
