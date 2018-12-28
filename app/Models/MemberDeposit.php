@@ -29,4 +29,14 @@ class MemberDeposit extends Model
     {
         return $this->belongsTo(PackageDeposit::class, 'deposit_id', 'id');
     }
+
+    /**
+     * This Member Deposit has Many Store
+     *
+     * @return void
+     */
+    public function store()
+    {
+        return $this->hasMany(MemberStore::class, 'member_deposit_id', 'id');
+    }
 }

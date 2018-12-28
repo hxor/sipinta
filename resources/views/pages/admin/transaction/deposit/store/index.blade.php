@@ -14,16 +14,16 @@
     <!-- Page-Title -->
     <div class="row">
         <div class="col-sm-12">
-            <h4 class="page-title">Storan Pinjaman</h4>
+            <h4 class="page-title">Storan Tabungan</h4>
             <ol class="breadcrumb">
                 <li>
                     <a href="#">Pages</a>
                 </li>
                 <li>
-                    <a href="#">Pinjaman</a>
+                    <a href="#">Tabungan</a>
                 </li>
                 <li class="active">
-                    Storan Pinjaman
+                    Storan Tabungan
                 </li>
             </ol>
         </div>
@@ -35,8 +35,8 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                     Datatable
-                    @if ($memberloan->status == true)
-                        <a href="{{ route('admin.transaction.loan.payment.create', $memberloan->id) }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect modal-show" title="Create Resource"><i class="fa fa-plus"></i> Create</a>
+                    @if ($memberdeposit->status == true)
+                        <a href="{{ route('admin.transaction.deposit.store.create', $memberdeposit->id) }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect modal-show" title="Create Resource"><i class="fa fa-plus"></i> Create</a>
                     @endif
                     </h3>
                 </div>
@@ -47,7 +47,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Angsuran</th>
+                                <th>Storan</th>
                                 <th>Tanggal</th>
                                 <th></th>
                             </tr>
@@ -72,54 +72,35 @@
                         <tbody>
                             <tr>
                                 <th>ID</th>
-                                <td>{{ $memberloan->id }}</td>
+                                <td>{{ $memberdeposit->id }}</td>
                             </tr>
                             <tr>
                                 <th>Anggota</th>
-                                <td>{{ $memberloan->member->name }} - {{ $memberloan->member->idnumber }}</td>
+                                <td>{{ $memberdeposit->member->name }} - {{ $memberdeposit->member->idnumber }}</td>
                             </tr>
                             <tr>
-                                <th>Paket Pinjaman</th>
-                                <td>{{ $memberloan->loan->title }}</td>
-                            </tr>
-                            <tr>
-                                <th>Pinjaman</th>
-                                <td>Rp{{ number_format($memberloan->debt,2,',','.') }}</td>
-                            </tr>
-                            <tr>
-                                <th>Piutang</th>
-                                <td>Rp{{ number_format($memberloan->credit,2,',','.') }}</td>
+                                <th>Paket Tabungan</th>
+                                <td>{{ $memberdeposit->deposit->title }}</td>
                             </tr>
                             <tr>
                                 <th>Storan</th>
-                                <td>Rp{{ number_format($memberloan->payment,2,',','.') }}</td>
+                                <td>Rp{{ number_format($memberdeposit->cash,2,',','.') }}</td>
                             </tr>
                             <tr>
-                                <th>Sisa Hutang</th>
-                                <td>Rp{{ number_format($memberloan->payment_left,2,',','.') }}</td>
+                                <th>Total Storan</th>
+                                <td>Rp{{ number_format($memberdeposit->store->sum('store'),2,',','.') }}</td>
                             </tr>
                             <tr>
-                                <th>Status Angsuran</th>
-                                <td>{{ $memberloan->status == 1 ? 'Belum Lunas' : 'Lunas' }}</td>
+                                <th>Suku Bunga</th>
+                                <td>Rp{{ number_format($bunga = $memberdeposit->profit,2,',','.') }}</td>
                             </tr>
-                        </tbody>
-                    </table>
-                    
-                    <table class="table table-hover">
-                        <thead>
                             <tr>
-                                <th>Jasa</th>
-                                <th>Kantor</th>
-                                <th>Sukarela</th>
-                                <th>Tabungan</th>
+                                <th>Total Tabungan</th>
+                                <td>Rp{{ number_format($totaltab = $memberdeposit->cash*$memberdeposit->deposit->period,2,',','.') }}</td>
                             </tr>
-                        </thead>
-                        <tbody>
                             <tr>
-                                <td>Rp{{ number_format($memberloan->cost_service,2,',','.') }}</td>
-                                <td>Rp{{ number_format($memberloan->cost_office,2,',','.') }}</td>
-                                <td>Rp{{ number_format($memberloan->cost_gift,2,',','.') }}</td>
-                                <td>Rp{{ number_format($memberloan->cost_saving,2,',','.') }}</td>
+                                <th>Total Tabungan + Bunga</th>
+                                <td>Rp{{ number_format($totaltab + $bunga,2,',','.') }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -150,10 +131,10 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('table.transaction.loan.payment', $memberloan->id) }}",
+                ajax: "{{ route('table.transaction.deposit.store', $memberdeposit->id) }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'id'},
-                    {data: 'payment', name: 'payment'},
+                    {data: 'store', name: 'store'},
                     {data: 'date', name: 'date'},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]

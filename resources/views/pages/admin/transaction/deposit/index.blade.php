@@ -49,6 +49,7 @@
                                 <th>Paket</th>
                                 <th>Storan</th>
                                 <th>Selesai ?</th>
+                                <th>Stor</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -93,6 +94,7 @@
                     {data: 'status', name:'status', "render": function (data) {
                         if(data == 1) {return 'Belum';} else {return 'Lunas';}
                     }},
+                    {data: 'stor', name: 'stor'},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });

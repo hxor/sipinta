@@ -17,8 +17,20 @@
             <td>Rp{{ number_format($model->cash,2,',','.') }}</td>
         </tr>
         <tr>
+            <th>Total Storan</th>
+            <td>Rp{{ number_format($model->store->sum('store'),2,',','.') }}</td>
+        </tr>
+        <tr>
             <th>Suku Bunga</th>
-            <td>Rp{{ number_format($model->profit,2,',','.') }}</td>
+            <td>Rp{{ number_format($bunga = $model->profit,2,',','.') }}</td>
+        </tr>
+        <tr>
+            <th>Total Tabungan</th>
+            <td>Rp{{ number_format($totaltab = $model->cash*$model->deposit->period,2,',','.') }}</td>
+        </tr>
+        <tr>
+            <th>Total Tabungan + Bunga</th>
+            <td>Rp{{ number_format($totaltab + $bunga,2,',','.') }}</td>
         </tr>
         <tr>
             <th>Status Tabungan</th>
