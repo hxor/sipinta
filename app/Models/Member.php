@@ -13,6 +13,14 @@ class Member extends Model
     ];
 
     /**
+     * This Member Has Many Loan
+     */
+    public function loan()
+    {
+        return $this->hasMany(MemberLoan::class, 'member_id', 'id');
+    }
+
+    /**
      * This Member belongs to Staff
      *
      * @return void

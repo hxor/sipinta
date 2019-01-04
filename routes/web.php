@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
     Route::resource('user', 'UserController');
     Route::get('/profile', 'UserController@profileIndex')->name('profile.index');
     Route::put('/profile/update', 'UserController@profileUpdate')->name('profile.update');
@@ -42,6 +42,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('/loan/{id}/payment', 'MemberPaymentController', ['names' => 'loan.payment']);
         Route::resource('deposit', 'MemberDepositController');
         Route::resource('/deposit/{id}/payment', 'MemberStoreController', ['names' => 'deposit.store']);
+    });
+
+    Route::group(['prefix' => 'bill', 'as' => 'bill.'], function () {
+        Route::get('loan', 'StaffBillController@index')->name('loan.index');
+        Route::get('loan/result', 'StaffBillController@result')->name('loan.result');
     });
 });
 

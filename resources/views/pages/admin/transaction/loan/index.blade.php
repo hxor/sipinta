@@ -35,6 +35,7 @@
                     <h3 class="panel-title">
                     Datatable
                     <a href="{{ route('admin.transaction.loan.create') }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect modal-show" title="Create Resource"><i class="fa fa-plus"></i> Create</a>
+                    <a href="{{ route('admin.bill.loan.index') }}" class="btn btn-sm btn-primary btn-custom pull-right waves-effect" title="Cetak Tagihan"><i class="fa fa-plus"></i> Tagihan</a>
                     </h3>
                 </div>
                 <div class="panel-body">

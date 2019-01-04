@@ -11,6 +11,15 @@ class Staff extends Model
     ];
 
     /**
+     * This staff has many
+     * Member
+     */
+    public function member()
+    {
+        return $this->hasMany(Member::class, 'staff_id', 'id');
+    }
+
+    /**
      * this staff belongs to group
      *
      * @return void
