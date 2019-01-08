@@ -30,6 +30,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{{ route('admin.transaction.loan.index') }}">Pinjam</a></li>
                         <li><a href="{{ route('admin.transaction.deposit.index') }}">Tabungan</a></li>
+                        <li><a href="{{ route('admin.transaction.claim.index') }}">Kasbon</a></li>
                     </ul>
                 </li>
 

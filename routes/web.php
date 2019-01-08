@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         Route::resource('/loan/{id}/payment', 'MemberPaymentController', ['names' => 'loan.payment']);
         Route::resource('deposit', 'MemberDepositController');
         Route::resource('/deposit/{id}/payment', 'MemberStoreController', ['names' => 'deposit.store']);
+        Route::resource('/claim', 'StaffClaimController');
     });
 
     Route::group(['prefix' => 'bill', 'as' => 'bill.'], function () {
@@ -66,6 +67,7 @@ Route::group(['prefix' => 'table', 'as' => 'table.'], function () {
         Route::get('loan/{id}/payment', 'MemberPaymentController@getTable')->name('loan.payment');
         Route::get('deposit', 'MemberDepositController@getTable')->name('deposit');
         Route::get('deposit/{id}/store', 'MemberStoreController@getTable')->name('deposit.store');
+        Route::get('claim', 'StaffClaimController@getTable')->name('claim');
     });
 });
 

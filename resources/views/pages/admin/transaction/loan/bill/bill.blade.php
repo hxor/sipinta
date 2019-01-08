@@ -69,7 +69,7 @@
                                         <td>Alamat</td>
                                         <td>No</td>
                                         <td>Setoran</td>
-                                        <td>Sisa Saldo</td>
+                                        <td>Sisa</td>
                                         <td>Keterangan</td>
                                     </thead>
                                     <tbody>

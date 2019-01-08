@@ -20,6 +20,14 @@ class Staff extends Model
     }
 
     /**
+     * This staff has many claim
+     */
+    public function claim()
+    {
+        return $this->hasMany(StaffClaim::class, 'staff_id', 'id');
+    }
+
+    /**
      * this staff belongs to group
      *
      * @return void
