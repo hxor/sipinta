@@ -259,6 +259,16 @@ class MemberLoanController extends Controller
     public function print($id)
     {
         $model = $this->model->findOrFail($id);
+        $day = [
+            'Sun' => 'Minggu',
+            'Mon' => 'Senin',
+            'Tue' => 'Selasa',
+            'Wed' => 'Rabu',
+            'Thu' => 'Kamis',
+            'Fri' => 'Jumat',
+            'Sat' => 'Sabtu'
+        ];
+        $model['hari'] = $day[$model->day];
 
         return view("{$this->view}.print", compact('model'));
     }

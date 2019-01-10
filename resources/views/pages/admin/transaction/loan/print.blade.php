@@ -33,122 +33,132 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <table width="100%">
-                                <tbody>
-                                    <tr>
-                                      <td align="center">KOPERASI SIMPAN PINJAM</td>
-                                    </tr>
-                                    <tr>
-                                      <td align="center">ARRTA JAYA</td>
-                                    </tr>
-                                    <tr>
-                                      <td align="center">Bukti Pencarian Pinjaman</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table width="100%">
-                              <tbody>
-                                <tr>
-                                  <td>No. Kontrak </td>
-                                  <td>: </td>
-                                  <td>P-2013123-1 </td>
-                                  <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                  <td>Nama Anggota </td>
-                                  <td>: </td>
-                                  <td>Abc </td>
-                                  <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                  <td>Keterangan </td>
-                                  <td>: </td>
-                                  <td>Pencairan Pinjaman </td>
-                                  <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                  <td>Tempo </td>
-                                  <td>: </td>
-                                  <td>Kamis </td>
-                                  <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                  <td>Kontrak </td>
-                                  <td>: </td>
-                                  <td>Paket 6 Angsuran </td>
-                                  <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                  <td>Setoran </td>
-                                  <td>:</td>
-                                  <td>Rp100000</td>
-                                  <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                  <td>Pokok Pinjaman</td>
-                                  <td>: </td>
-                                  <td>Rp </td>
-                                  <td>500000 </td>
-                                </tr>
-                                <tr>
-                                  <td>Pokok + Jasa </td>
-                                  <td>:</td>
-                                  <td>Rp</td>
-                                  <td>600000</td>
-                                </tr>
-                                <tr>
-                                  <td>Adm Pinjaman</td>
-                                  <td>:</td>
-                                  <td>Rp</td>
-                                  <td>12500</td>
-                                </tr>
-                                <tr>
-                                  <td>Tabungan</td>
-                                  <td>:</td>
-                                  <td>Rp</td>
-                                  <td>12500</td>
-                                </tr>
-                                
-                                <tr>
-                                  <td>Di Terima</td>
-                                  <td>:</td>
-                                  <td>Rp </td>
-                                  <td>475000 </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <table width="100%">
-                              <tbody>
-                                <tr>
-                                  <td colspan="4">Mengetahui</td>
-                                </tr>
-                                <tr>
-                                  <td>&nbsp;</td>
-                                  <td>&nbsp;</td>
-                                  <td>Cirebon, Januari 2019</td>
-                                </tr>
-                                <tr>
-                                  <td>Anggota</td>
-                                  <td>Marketing</td>
-                                  <td>Teller</td>
-                                </tr>
-                                <tr>
-                                  <td>&nbsp;</td>
-                                  <td>&nbsp;</td>
-                                  <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                  <td>&nbsp;</td>
-                                  <td>&nbsp;</td>
-                                  <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                  <td>Abc</td>
-                                  <td>Staff</td>
-                                  <td>Neng</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                          <table width="100%" border="0">
+                            <tbody>
+                              <tr>
+                                <td width="100" rowspan="3">
+                                 <img src="/assets/images/koperasi.png" width="180" height="50" alt=""/></td>
+                                <td align="center"><strong>KOPERASI SIMPAN PINJAM</strong></td>
+                              </tr>
+                              <tr>
+                                <td align="center"><strong>ARRTA JAYA</strong></td>
+                              </tr>
+                              <tr>
+                                <td align="center"><strong>Bukti Pencarian Pinjaman</strong></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <hr>
+                          <table width="100%" border="0">
+                            <tbody>
+                              <tr>
+                                <td width="168">No. Kontrak </td>
+                                <td width="31">: </td>
+                                <td width="512">{{ $model->invoice }}</td>
+                                <td width="233">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>Nama Anggota </td>
+                                <td>: </td>
+                                <td>{{ $model->member->name }} </td>
+                                <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>Keterangan </td>
+                                <td>: </td>
+                                <td>Pencairan Pinjaman </td>
+                                <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>Tempo </td>
+                                <td>: </td>
+                                <td>{{ $model->hari }} </td>
+                                <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>Kontrak </td>
+                                <td>: </td>
+                                <td>{{ $model->loan->title }} </td>
+                                <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>Setoran </td>
+                                <td>:</td>
+                                <td>Rp{{ number_format($model->payment,2,',','.') }}</td>
+                                <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>Pokok Pinjaman</td>
+                                <td>: </td>
+                                <td>Rp </td>
+                                <td align="right">{{ number_format($model->debt,2,',','.') }}</td>
+                              </tr>
+                              <tr>
+                                <td>Pokok + Jasa </td>
+                                <td>:</td>
+                                <td>Rp</td>
+                                <td align="right">{{ number_format(($model->debt+$model->cost_service),2,',','.') }}</td>
+                              </tr>
+                              <tr>
+                                <td>Adm Pinjaman</td>
+                                <td>:</td>
+                                <td>Rp</td>
+                                <td align="right">{{ number_format($model->cost_office,2,',','.') }}</td>
+                              </tr>
+                              <tr>
+                                <td>Adm Sukarela</td>
+                                <td>:</td>
+                                <td>Rp</td>
+                                <td align="right">{{ number_format($model->cost_gift,2,',','.') }}</td>
+                              </tr>
+                              <tr>
+                                <td>Tabungan</td>
+                                <td>:</td>
+                                <td>Rp</td>
+                                <td align="right">{{ number_format($model->cost_saving,2,',','.') }}</td>
+                              </tr>
+                              
+                              <tr>
+                                <td><strong>Diterima</strong></td>
+                                <td><strong>:</strong></td>
+                                <td><strong>Rp </strong></td>
+                                <td align="right"><strong>{{ number_format($model->drop,2,',','.') }}</strong></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <table width="100%" border="0">
+                            <tbody>
+                              <tr>
+                                <td colspan="3" align="center"><strong>Mengetahui</strong></td>
+                              </tr>
+                              <tr>
+                                <td width="330">&nbsp;</td>
+                                <td width="330">&nbsp;</td>
+                                <td width="330" align="center"><strong>Cirebon, {{ $model->created_at->format('d/m/Y') }}</strong></td>
+                              </tr>
+                              <tr>
+                                <td align="center"><strong>Anggota</strong></td>
+                                <td align="center"><strong>Marketing</strong></td>
+                                <td align="center"><strong>Teller</strong></td>
+                              </tr>
+                              <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td align="center"><strong>{{ $model->member->name }}</strong></td>
+                                <td align="center"><strong>{{ $model->member->staff->name }}</strong></td>
+                                <td align="center"><strong>{{ Auth::user()->name }}</strong></td>
+                              </tr>
+                            </tbody>
+                          </table>
                         </div>
                     </div>
                     <hr>
