@@ -241,6 +241,9 @@ class MemberLoanController extends Controller
             ->addColumn('stor', function ($model) {
                 return '<a href="' .route('admin.transaction.loan.payment.index', $model->id). '"><span class="fa fa-edit"></span></a>';
             })
+            ->addColumn('print', function ($model) {
+                return '<a href="' .route('admin.transaction.loan.print', $model->id). '"><span class="fa fa-print"></span></a>';
+            })
             ->addColumn('action', function ($model) {
                 return view('layouts.admin.partials._action', [
                     'model' => $model,
@@ -250,6 +253,13 @@ class MemberLoanController extends Controller
                 ]);
             })
             ->addIndexColumn()
-            ->rawColumns(['stor','action'])->make(true);
+            ->rawColumns(['stor', 'print','action'])->make(true);
+    }
+
+    public function print($id)
+    {
+        $model = $this->model->findOrFail($id);
+
+        return view("{$this->view}.print", compact('model'));
     }
 }

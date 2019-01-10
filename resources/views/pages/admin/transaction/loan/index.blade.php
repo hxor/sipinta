@@ -52,6 +52,7 @@
                                 <th>Sisa</th>
                                 <th>Lunas ?</th>
                                 <th>Stor</th>
+                                <th>Cetak</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -98,6 +99,7 @@
                         if(data == 1) {return 'Belum';} else {return 'Lunas';}
                     }},
                     {data: 'stor', name: 'stor'},
+                    {data: 'print', name: 'print', orderable: false, searchable: false},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });

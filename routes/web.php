@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     Route::group(['prefix' => 'transaction', 'as' => 'transaction.'], function () {
         Route::resource('loan', 'MemberLoanController');
+        Route::get('loan/{id}/print', 'MemberLoanController@print')->name('loan.print');
         Route::resource('/loan/{id}/payment', 'MemberPaymentController', ['names' => 'loan.payment']);
         Route::resource('deposit', 'MemberDepositController');
         Route::resource('/deposit/{id}/payment', 'MemberStoreController', ['names' => 'deposit.store']);
